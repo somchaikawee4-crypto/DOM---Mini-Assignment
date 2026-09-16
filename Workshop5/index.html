@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop 5: Dynamic Product List</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f6f8; 
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 24px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h1 {
+            color: #334155;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 14px;
+            font-size: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            outline: none;
+            color: #334155;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #64748b;
+            box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.1);
+        }
+
+        button {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background-color: #64748b; 
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.15);
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #475569;
+            transform: translateY(-2px);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        li {
+            background-color: #f8fafc;
+            color: #475569;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 16px;
+            font-weight: 500;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Add Product</h1>
+        
+        <div class="input-group">
+            <input id="pname" type="text" placeholder="ใส่ชื่อผลิตภัณฑ์">
+            <button id="addBtn">Add</button>
+        </div>
+        
+        <ul id="productList"></ul>
+    </div>
+
+    <script>
+        const productNameInput = document.getElementById('pname');
+        const addBtn = document.getElementById('addBtn');
+        const productList = document.getElementById('productList');
+
+        if (addBtn && productNameInput && productList) {
+            addBtn.addEventListener('click', function() {
+                const inputValue = productNameInput.value.trim();
+                
+                if (inputValue === "") {
+                    alert("กรุณาพิมพ์ชื่อผลิตภัณฑ์ก่อนครับ");
+                    return;
+                }
+
+                const newLi = document.createElement('li');
+                newLi.textContent = inputValue;
+                productList.appendChild(newLi);
+                
+                productNameInput.value = "";
+                productNameInput.focus();
+            });
+        }
+    </script>
+</body>
+</html>

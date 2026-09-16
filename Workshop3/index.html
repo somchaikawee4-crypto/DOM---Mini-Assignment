@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop 3: Live Character Counter</title>
+    <style>
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+        }
+
+        /* กล่องการ์ดเนื้อหา */
+        .card {
+            text-align: center;
+            padding: 40px;
+            border-radius: 24px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* กล่องพิมพ์ข้อความ */
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            outline: none;
+            resize: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        textarea:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+        }
+
+        p {
+            font-size: 16px;
+            color: #64748b;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        /* ตัวเลขไฮไลต์ */
+        #count {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0ea5e9;
+        }
+
+        /* ปุ่ม Submit */
+        button {
+            padding: 12px 30px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background-color: #0ea5e9;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0284c7;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>มหาวิทยาลัยราชภัฏนครปฐม</h1>
+      
+        <textarea id="textInput" placeholder="เริ่มพิมพ์ข้อความตรงนี้ได้เลย..."></textarea>
+        
+        <p>Character count: <span id="count">0</span></p>
+        
+        <button>submit</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
